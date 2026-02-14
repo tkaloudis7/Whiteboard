@@ -2,30 +2,54 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>About us page</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>About Us - Whiteboard</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div align="center">
-  <img src="img/whiteboard_logo.png" alt="Whiteboard Logo" width="150">
-  <br>
-  <nav style="margin-top: 10px;">
-    <a href="index.html">Home</a> |
-    <a href="about.html">About</a> |
-    <a href="tasks.html">Tasks</a> |
-    <a href="contact.html">Contact</a>
-  </nav>
-</div>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+  <div class="container-fluid"> <a class="navbar-brand" href="index.html">
+    <img src="img/whiteboard_logo.png" alt="Logo" width="50" height="50" class="d-inline-block align-text-top">
+    Whiteboard
+  </a>
 
-<hr>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
+    <div class="collapse navbar-collapse" id="navbarNav"> <ul class="navbar-nav ms-auto"> <li class="nav-item">
+      <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+    </li>
+      <li class="nav-item">
+        <a class="nav-link" href="about.html">About</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="tasks.html">Tasks</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="contact.html">Contact</a>
+      </li>
+    </ul>
+    </div>
+  </div>
+</nav>
+
+
+
+<br>
 
 <div align="center">
   <h1>About Us</h1>
+  <br>
   <p>Whiteboard is a task management application that helps students
     organize their studies and meet their deadlines. </p>
 <br><br>
   <h2>Key Features</h2>
+  <br>
   <ul style="display: inline-block; text-align: left;">
     <li><strong>Task Manager:</strong> Add your daily to-do list and its priority level</li>
     <li><strong>Deadline Tracker:</strong> Stay on track with your deadlines</li>
@@ -36,32 +60,24 @@
 
   <h2>Our Team</h2>
   <br><br>
+  <div class="row justify-content-center text-center"> <div class="col-12 col-md-4 mb-5"> <img src="img/tkk_profile.jpg" alt="Founder" class="rounded-circle mb-3" width="200" height="200" style="object-fit: cover;">
+    <h3>Theodoros K. Kaloudis</h3>
+    <p class="text-muted">Lead Developer</p>
+  </div>
 
-  <table width="100%" border="1" cellpadding="10" cellspacing="0">
-    <tr align="center">
+    <div class="col-12 col-md-4 mb-5">
+      <img src="img/ak_profile.jpg" alt="Designer" class="rounded-circle mb-3" width="200" height="200" style="object-fit: cover;">
+      <h3>Antonis Kaloudis</h3>
+      <p class="text-muted">UI Designer</p>
+    </div>
 
-      <td width="33%">
-        <img src="img/tkk_profile.jpg" alt="Founder" width="200" height="200"><br>
-        <h3>Theodoros K. Kaloudis</h3>
-        <p>Lead Developer</p>
-      </td>
+    <div class="col-12 col-md-4 mb-5">
+      <img src="img/tester_profile.jpg" alt="Tester" class="rounded-circle mb-3" width="200" height="200" style="object-fit: cover;">
+      <h3>Nikos Papadopoulos</h3>
+      <p class="text-muted">Tester</p>
+    </div>
 
-      <td width="33%">
-        <img src="img/ak_profile.jpg" alt="Designer" width="200" height="200"><br>
-        <h3>Antonis Kaloudis</h3>
-        <p>UI Designer</p>
-      </td>
-
-      <td width="33%">
-        <img src="img/tester_profile.jpg" alt="Tester" width="200" height="200"><br>
-        <h3>Nikos Papadopoulos</h3>
-        <p>Tester</p>
-      </td>
-
-    </tr>
-  </table>
-
-  <br><br>
+  </div>
 
 
 
@@ -72,5 +88,7 @@
   </footer>
 </div>
 
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

@@ -248,18 +248,6 @@ textarea {
   height: 50px;
 }
 
-.site-footer {
-  text-align: center;
-  margin-top: 3rem;
-  padding-bottom: 1.5rem;
-}
-
-
-.site-footer hr {
-  width: 80%;
-  margin: 0 auto 1.5rem auto;
-  border-top: 1px solid #dee2e6;
-}
 
   .carousel-item {
     height: 400px;

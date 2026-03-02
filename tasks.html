@@ -29,6 +29,9 @@
         <li class="nav-item"><a class="nav-link" href="faq.html">FAQ</a></li>
         <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
       </ul>
+      <li class="nav-item d-flex align-items-center ms-lg-3 mt-2 mt-lg-0">
+        <button id="darkModeToggle" class="btn btn-outline-light btn-sm">Dark Mode</button>
+      </li>
     </div>
   </div>
 </nav>
@@ -39,22 +42,29 @@
 
   <br>
 
-  <form>
-    <label>Task Name:</label>
-    <input type="text" placeholder="Enter task...">
-
-    <label>Date:</label>
-    <input type="date">
-
-    <label>Priority:</label>
-    <select>
-      <option>Low</option>
-      <option>Medium</option>
-      <option>High</option>
-    </select>
-
-    <button type="button">Add Task</button>
-  </form>
+  <div class="card shadow-sm p-4 mb-5 border-0 bg-body-tertiary text-start container">
+    <form id="taskForm" class="row g-3 align-items-end">
+      <div class="col-md-5">
+        <label for="taskName" class="form-label fw-bold">Task Name:</label>
+        <input type="text" id="taskName" class="form-control" placeholder="Enter task...">
+      </div>
+      <div class="col-md-3">
+        <label for="taskDate" class="form-label fw-bold">Date:</label>
+        <input type="date" id="taskDate" class="form-control">
+      </div>
+      <div class="col-md-2">
+        <label for="taskPriority" class="form-label fw-bold">Priority:</label>
+        <select id="taskPriority" class="form-select">
+          <option value="Low">Low</option>
+          <option value="Medium">Medium</option>
+          <option value="High">High</option>
+        </select>
+      </div>
+      <div class="col-md-2">
+        <button type="button" id="addTaskBtn" class="btn btn-primary w-100 fw-bold">Add Task</button>
+      </div>
+    </form>
+  </div>
 
   <br><br>
 

@@ -56,6 +56,18 @@ const taskDateInput = document.querySelector("#taskDate");
 const taskPriorityInput = document.querySelector("#taskPriority");
 
 if (addTaskBtn) {
+
+  //loads saved data
+  const savedTasks = localStorage.getItem("myTasks");
+  if (savedTasks) {
+    taskTableBody.innerHTML = savedTasks;
+  }
+
+  //saves data on local storage
+  function saveToLocalStorage() {
+    localStorage.setItem("myTasks", taskTableBody.innerHTML);
+  }
+
   addTaskBtn.addEventListener("click", () => {
     const taskName = taskNameInput.value.trim();
     const taskDate = taskDateInput.value;
@@ -82,12 +94,14 @@ if (addTaskBtn) {
     taskTableBody.appendChild(newRow);
     taskNameInput.value = "";
     taskDateInput.value = "";
+    saveToLocalStorage();
   });
 
 //task deletion
   taskTableBody.addEventListener("click", (e) => {
     if (e.target.classList.contains("delete-btn")) {
       e.target.closest("tr").remove();
+      saveToLocalStorage();
     }
   });
 }

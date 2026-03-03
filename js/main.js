@@ -48,6 +48,40 @@ if (toggleBtn) {
   });
 }
 
+
+//latest activity logic
+const activityList = document.querySelector("#activityList");
+
+//load data
+if (activityList) {
+  const savedActivity = localStorage.getItem("myActivity");
+  if (savedActivity) {
+    activityList.innerHTML = savedActivity;
+  }
+}
+
+//log activity
+function logActivity(message) {
+  let currentActivity = localStorage.getItem("myActivity");
+  if (!currentActivity) {
+    currentActivity = "";
+  }
+
+  const newLog = "<li class='list-group-item'>" + message + "</li>";
+  let allActivity = newLog + currentActivity;
+
+  let logsArray = allActivity.split("</li>");
+  let limitedActivity = "";
+  for (let i = 0; i < 5; i++) {
+    if (logsArray[i] && logsArray[i].trim() !== "") {
+      limitedActivity += logsArray[i] + "</li>";
+    }
+  }
+
+  //saves previous history
+  localStorage.setItem("myActivity", limitedActivity);
+}
+
 //tasks page logic
 const addTaskBtn = document.querySelector("#addTaskBtn");
 const taskTableBody = document.querySelector("#taskTableBody");
@@ -86,22 +120,47 @@ if (addTaskBtn) {
       <td>${taskPriority}</td>
       <td>Pending</td>
       <td class="text-center">
+        <button class="btn btn-success btn-sm complete-btn">Complete</button>
+        <button class="btn btn-warning btn-sm edit-btn">Edit</button>
         <button class="btn btn-danger btn-sm delete-btn">Delete</button>
       </td>
     `;
-
 
     taskTableBody.appendChild(newRow);
     taskNameInput.value = "";
     taskDateInput.value = "";
     saveToLocalStorage();
+    logActivity("Added new task: <strong>" + taskName + "</strong>");
   });
 
-//task deletion
+  //task buttons
   taskTableBody.addEventListener("click", (e) => {
+
+    //delete button logic
     if (e.target.classList.contains("delete-btn")) {
       e.target.closest("tr").remove();
       saveToLocalStorage();
+      logActivity("You deleted a task.");
+
+      //status button logic
+    } else if (e.target.classList.contains("complete-btn")) {
+      const row = e.target.closest("tr");
+      row.children[3].innerText = "Completed";
+      row.classList.add("table-success");
+      saveToLocalStorage();
+      logActivity("Completed a task.");
+
+      //edit button logic
+    } else if (e.target.classList.contains("edit-btn")) {
+      const row = e.target.closest("tr");
+      const currentName = row.children[0].innerText;
+      const newName = prompt("Edit task name:", currentName);
+
+      if (newName !== null && newName.trim() !== "") {
+        row.children[0].innerText = newName.trim();
+        saveToLocalStorage();
+        logActivity("Edited a task.");
+      }
     }
   });
 }

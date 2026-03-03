@@ -47,3 +47,47 @@ if (toggleBtn) {
     }
   });
 }
+
+//tasks page logic
+const addTaskBtn = document.querySelector("#addTaskBtn");
+const taskTableBody = document.querySelector("#taskTableBody");
+const taskNameInput = document.querySelector("#taskName");
+const taskDateInput = document.querySelector("#taskDate");
+const taskPriorityInput = document.querySelector("#taskPriority");
+
+if (addTaskBtn) {
+  addTaskBtn.addEventListener("click", () => {
+    const taskName = taskNameInput.value.trim();
+    const taskDate = taskDateInput.value;
+    const taskPriority = taskPriorityInput.value;
+
+    if (taskName === "") {
+      alert("Please enter a task name!");
+      return;
+    }
+
+//populate with data and delete button
+    const newRow = document.createElement("tr");
+    newRow.innerHTML = `
+      <td>${taskName}</td>
+      <td>${taskDate}</td>
+      <td>${taskPriority}</td>
+      <td>Pending</td>
+      <td class="text-center">
+        <button class="btn btn-danger btn-sm delete-btn">Delete</button>
+      </td>
+    `;
+
+
+    taskTableBody.appendChild(newRow);
+    taskNameInput.value = "";
+    taskDateInput.value = "";
+  });
+
+//task deletion
+  taskTableBody.addEventListener("click", (e) => {
+    if (e.target.classList.contains("delete-btn")) {
+      e.target.closest("tr").remove();
+    }
+  });
+}

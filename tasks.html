@@ -46,7 +46,7 @@
     <form id="taskForm" class="row g-3 align-items-end">
       <div class="col-md-5">
         <label for="taskName" class="form-label fw-bold">Task Name:</label>
-        <input type="text" id="taskName" class="form-control" placeholder="Enter task...">
+        <input type="text" id="taskName" class="form-control" placeholder="Enter task..." maxlength="70">
       </div>
       <div class="col-md-3">
         <label for="taskDate" class="form-label fw-bold">Date:</label>
@@ -68,30 +68,21 @@
 
   <br><br>
 
-  <table border="1" cellpadding="10">
-    <thead>
-    <tr>
-      <th>Task</th>
-      <th>Date</th>
-      <th>Priority</th>
-      <th>Status</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr>
-      <td>Study Internet Programming</td>
-      <td>2026/02/10</td>
-      <td>High</td>
-      <td>Pending</td>
-    </tr>
-    <tr>
-      <td>Study Immersive computing</td>
-      <td>2026/02/10</td>
-      <td>Medium</td>
-      <td>Pending</td>
-    </tr>
-    </tbody>
-  </table>
+  <div class="container table-responsive shadow-sm rounded">
+    <table class="table table-hover align-middle mb-0 text-start">
+      <thead class="table-dark">
+      <tr>
+        <th>Task</th>
+        <th>Date</th>
+        <th>Priority</th>
+        <th>Status</th>
+        <th class="text-center">Action</th>
+      </tr>
+      </thead>
+      <tbody id="taskTableBody">
+      </tbody>
+    </table>
+  </div>
 
 <br><br>
 

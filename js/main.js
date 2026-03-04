@@ -164,3 +164,26 @@ if (addTaskBtn) {
     }
   });
 }
+
+//pop up on contact form
+const contactForm = document.querySelector("#contactForm");
+
+if (contactForm) {
+  contactForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    //extracts data from fields
+    const name = document.querySelector("#fullname").value.trim();
+    const email = document.querySelector("#email").value.trim();
+    const message = document.querySelector("#message").value.trim();
+
+    //pop up confirmation
+    alert("Message Sent Successfully!\n\nDetails::\nName: " + name + "\nEmail: " + email + "\nMessage: " + message);
+
+    //deletes form after submission
+    document.querySelector("#fullname").value = "";
+    document.querySelector("#email").value = "";
+    document.querySelector("#message").value = "";
+    document.querySelector("#subject").value = "general";
+  });
+}
